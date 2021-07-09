@@ -1,0 +1,58 @@
+export PROJ_NAME ?= zt102
+
+
+export NO_LPU_26M ?= 1
+
+KBUILD_CPPFLAGS += -D__PROJ_NAME_ZT102__
+
+#public
+KBUILD_CPPFLAGS += -D__APP_ZOWEE_UI__
+
+#software version information for test
+KBUILD_CPPFLAGS += -D__APP_ZOWEE_SOFTWARE_VERSION__
+
+#bus
+KBUILD_CPPFLAGS += -D__BUS_TWI_SW_TWI__
+#KBUILD_CPPFLAGS += -D__BUS_TWI_HW_TWI__
+
+
+#Gesture Manage Micro Control
+#gsenor or touch support
+KBUILD_CPPFLAGS += -D__APP_GESTURE_ENABLE__
+	#KBUILD_CPPFLAGS += -D__TOUCH_GPIOTE__
+	KBUILD_CPPFLAGS += -D__TOUCH_IQS269A__
+
+#Wear Manage Micro Control
+KBUILD_CPPFLAGS += -D__APP_WEAR_ENABLE__
+	#KBUILD_CPPFLAGS += -D__IR_W2001__
+	KBUILD_CPPFLAGS += -D__WEAR_CONTROL_ANC__
+
+#product test
+KBUILD_CPPFLAGS += -D__SCPI_TEST__
+
+#VBUS Manage Micro Control
+KBUILD_CPPFLAGS += -D__APP_VBUS_ENABLE__
+	KBUILD_CPPFLAGS += -D__VBUS_USE_UART__
+
+#old charging box protocol
+KBUILD_CPPFLAGS += -D__VBUS_SUP_OLD__
+
+#battery
+KBUILD_CPPFLAGS += -D__APP_BATTERY_USER__
+	KBUILD_CPPFLAGS += -D__BATTERY_ZT102__
+	
+#anc hearthrough
+KBUILD_CPPFLAGS += -D__APP_ANC_HEAR_THROUGH__
+
+#anc en voice
+KBUILD_CPPFLAGS += -D__APP_ANC_EN_REPORT__
+
+ifeq ($(DEBUG),1)
+KBUILD_CPPFLAGS += -D__ZOWEE_ANC_TEST_VIA_SPP__
+endif
+
+	
+
+
+
+
